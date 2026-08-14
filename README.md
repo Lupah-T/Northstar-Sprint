@@ -1,7 +1,100 @@
-# Northstar Support Deflection MVP
+# Northstar Retail Co. — Support Deflection MVP
 
-## Overview
-Northstar Retail Co. is a mid-size e-commerce company experiencing a high volume of repetitive customer support inquiries. This MVP aims to deflect common support tickets by providing an automated self-service portal for "Returns & Refunds" and "Stock Availability" inquiries.
+## Project Overview
+
+Northstar Retail Co. is a mid-size e-commerce company whose support
+team receives a high volume of repetitive customer questions.
+
+For this sprint, our team was tasked with developing a Support
+Deflection MVP capable of reducing manual handling of at least two
+customer support categories.
+
+The team selected:
+
+1. Returns & Refunds
+2. Stock Availability
+
+The MVP provides self-service functionality that allows customers to
+obtain information without requiring a support agent for every
+request.
+
+---
+
+## Sprint Context
+
+This project was completed as part of a one-week industry working
+simulation with a highly constrained delivery timeline.
+
+Due to the limited time available to the team, building the entire
+application independently from an empty repository would have
+introduced unnecessary setup and integration overhead and reduced the
+time available for testing, collaboration, and delivery.
+
+Therefore, during the initial virtual team working session, the
+repository administrator established a common technical baseline for
+the project.
+
+The baseline provided the team with:
+
+- Initial application structure
+- Core MERN configuration
+- Initial database integration
+- Initial frontend structure
+- Initial backend structure
+- Initial MVP functionality
+
+This baseline was treated as the team's common starting point rather
+than as the completed contribution of an individual member.
+
+Following the baseline setup, the team divided the remaining
+implementation, testing, integration, documentation, and deployment
+work among the five members.
+
+---
+
+## Collaborative Development Approach
+
+After establishing the baseline, the team worked through GitHub using
+individual branches and assigned tasks.
+
+The team responsibilities were divided as follows:
+
+| Member | Responsibility |
+|---|---|
+| Member 1 | Team Lead + Backend/API |
+| Member 2 | Frontend/UI |
+| Member 3 | Database + Business Logic |
+| Member 4 | Testing / QA |
+| Member 5 | DevOps + Documentation |
+
+Each member was assigned specific tasks through the GitHub Project
+Board.
+
+Members were expected to:
+
+1. Work on their assigned task.
+2. Make meaningful changes to the project.
+3. Test their changes.
+4. Commit their work using the agreed commit convention.
+5. Push their branch to GitHub.
+6. Create or participate in Pull Request reviews.
+7. Keep the Project Board status synchronized with their work.
+
+---
+
+## Git Branch Structure
+
+The project uses separate branches for major areas of responsibility:
+
+```text
+main
+│
+├── feature/backend-api
+├── feature/frontend
+├── feature/database
+├── test/mvp-testing
+└── docs/devops
+```
 
 ## Features
 - **Returns & Refunds**: Customers can check the eligibility, return status, and refund status of their orders.
