@@ -162,11 +162,20 @@ northstar-sprint/
 You can test the application using the following mock data pre-loaded into the database:
 
 **Returns & Refunds:**
-- **Valid Return:** Enter Order ID `NS1001` (Shows an eligible, approved return with a completed refund).
-- **Ineligible Return:** Enter Order ID `NS1002` (Shows an ineligible, rejected return).
+- **Completed Return:** Enter Order ID `NS1001` (Shows an eligible, approved return with a completed refund).
+- **Rejected Return:** Enter Order ID `NS1002` (Shows an ineligible, rejected return).
+- **Pending Refund:** Enter Order ID `NS1003` (Shows an approved return with a pending refund).
+- **In Transit Return:** Enter Order ID `NS2001` (Shows an eligible return that is currently in transit).
+- **Processing Return:** Enter Order ID `NS2002` (Shows an eligible return currently processing).
+- **Received & Processing Refund:** Enter Order ID `NS2003` (Shows a received return where the refund is processing).
+- **Ineligible (Past Window):** Enter Order ID `NS2004` (Shows an ineligible return because it is past 30 days).
 - **Invalid/Error Data:** Enter Order ID `NS9999` (Shows an error that the order was not found).
 
 **Stock Availability:**
-- **Valid Stock:** Enter Product ID `P1001` and Variant `Size 42` (Shows available stock).
-- **Out of Stock:** Enter Product ID `P1001` and Variant `Size 44` (Shows an out-of-stock error).
+- **In Stock (Shoes):** Enter Product ID `P1001` and Variant `Size 42` (Shows 6 in stock).
+- **Out of Stock (Shoes):** Enter Product ID `P1001` and Variant `Size 44` (Shows an out-of-stock error).
+- **In Stock (Apparel):** Enter Product ID `P1002` and Variant `Medium` (Shows 10 in stock).
+- **In Stock (Parka):** Enter Product ID `P2001` and Variant `Large` (Shows 15 in stock).
+- **Low Stock (Parka):** Enter Product ID `P2001` and Variant `Medium` (Shows 2 in stock).
+- **In Stock (Yoga Mat):** Enter Product ID `P2002` and Variant `One Size` (Shows 45 in stock).
 - **Invalid Product:** Enter Product ID `P9999` (Shows an error that the product was not found).
