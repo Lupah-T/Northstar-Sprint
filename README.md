@@ -20,6 +20,16 @@ request.
 
 ---
 
+## Live Deployment
+
+The application is currently live and can be accessed at the following links:
+
+- **Frontend (Vercel):** `[Insert Vercel URL here]`
+- **Backend API (Render):** `[Insert Render URL here]`
+- **Database:** MongoDB Atlas
+
+---
+
 ## Sprint Context
 
 This project was completed as part of a one-week industry working

@@ -13,11 +13,11 @@
 - The UI uses basic CSS and doesn't incorporate a complex design system.
 - There are no user authentication mechanisms for customers (out of scope for MVP).
 
-## 3. What Northstar Must Configure Before Production Use
-- Connect the MongoDB instance to a production database URI.
-- Update CORS settings in Express to restrict access to production domains.
-- Provide a persistent hosting solution (e.g., Heroku, Render, AWS, Vercel) for both backend and frontend.
-- Setup CI/CD pipelines to run automated tests on deployment.
+## 3. Production Configuration Status
+- **Database:** Connected to MongoDB Atlas cloud database.
+- **Backend Hosting:** Deployed on Render.
+- **Frontend Hosting:** Deployed on Vercel.
+- **CORS:** Ensure Express CORS settings are updated to restrict access to the Vercel domain.
 
 ## 4. Deployment/Setup Requirements
 - Node.js environment (v16+).
