@@ -9,7 +9,9 @@ const Inventory = require('../models/Inventory');
 
 const customers = [
   { customerId: 'C1001', name: 'Alice Smith', email: 'alice@example.com' },
-  { customerId: 'C1002', name: 'Bob Jones', email: 'bob@example.com' }
+  { customerId: 'C1002', name: 'Bob Jones', email: 'bob@example.com' },
+  { customerId: 'C1003', name: 'Charlie Brown', email: 'charlie@example.com' },
+  { customerId: 'C1004', name: 'Diana Prince', email: 'diana@example.com' }
 ];
 
 const orders = [
@@ -17,26 +19,119 @@ const orders = [
   { orderId: 'NS1002', customerId: 'C1002', status: 'Delivered' },
   { orderId: 'NS1003', customerId: 'C1001', status: 'Delivered' },
   { orderId: 'NS1004', customerId: 'C1002', status: 'Delivered' },
-  { orderId: 'NS1005', customerId: 'C1001', status: 'Processing' }
+  { orderId: 'NS1005', customerId: 'C1001', status: 'Processing' },
+  { orderId: 'NS1006', customerId: 'C1003', status: 'Delivered' },
+  { orderId: 'NS1007', customerId: 'C1004', status: 'Delivered' },
+  { orderId: 'NS1008', customerId: 'C1003', status: 'Delivered' }
 ];
 
 const returns = [
-  { returnId: 'R1001', orderId: 'NS1001', returnEligible: true, returnStatus: 'Approved', refundStatus: 'Completed' },
-  { returnId: 'R1002', orderId: 'NS1002', returnEligible: false, returnStatus: 'Rejected', refundStatus: 'Not Applicable' },
-  { returnId: 'R1003', orderId: 'NS1003', returnEligible: true, returnStatus: 'Approved', refundStatus: 'Pending' }
+  {
+    returnId: 'R1001',
+    orderId: 'NS1001',
+    returnEligible: true,
+    returnStatus: 'Approved',
+    refundStatus: 'Completed',
+    reason: 'Size did not fit'
+  },
+  {
+    returnId: 'R1002',
+    orderId: 'NS1002',
+    returnEligible: false,
+    returnStatus: 'Rejected',
+    refundStatus: 'Not Applicable',
+    reason: 'Return window expired'
+  },
+  {
+    returnId: 'R1003',
+    orderId: 'NS1003',
+    returnEligible: true,
+    returnStatus: 'Received',
+    refundStatus: 'Pending',
+    reason: 'Item defective on arrival'
+  },
+  {
+    returnId: 'R1004',
+    orderId: 'NS1006',
+    returnEligible: true,
+    returnStatus: 'Requested',
+    refundStatus: 'Not Started',
+    reason: 'Wrong color received'
+  },
+  {
+    returnId: 'R1005',
+    orderId: 'NS1007',
+    returnEligible: true,
+    returnStatus: 'Completed',
+    refundStatus: 'Processed',
+    reason: 'Unopened return'
+  },
+  {
+    returnId: 'R1006',
+    orderId: 'NS1008',
+    returnEligible: true,
+    returnStatus: 'Approved',
+    refundStatus: 'Failed',
+    reason: 'Payment method declined for refund'
+  }
 ];
 
 const products = [
-  { productId: 'P1001', name: 'Northstar Running Shoe', category: 'Shoes' },
-  { productId: 'P1002', name: 'Northstar T-Shirt', category: 'Apparel' },
-  { productId: 'P1003', name: 'Northstar Backpack', category: 'Accessories' }
+  {
+    productId: 'P1001',
+    name: 'Northstar Running Shoe',
+    category: 'Shoes',
+    description: 'High-performance running shoe with responsive cushioning'
+  },
+  {
+    productId: 'P1002',
+    name: 'Northstar Performance T-Shirt',
+    category: 'Apparel',
+    description: 'Breathable lightweight athletic shirt'
+  },
+  {
+    productId: 'P1003',
+    name: 'Northstar Everyday Backpack',
+    category: 'Accessories',
+    description: 'Durable water-resistant commuter backpack'
+  },
+  {
+    productId: 'P1004',
+    name: 'Northstar Pro Basketball Shoe',
+    category: 'Shoes',
+    description: 'Ankle support basketball sneaker with traction grip'
+  },
+  {
+    productId: 'P1005',
+    name: 'Northstar Trail Hiking Boots',
+    category: 'Shoes',
+    description: 'All-weather waterproof trail hiking boots'
+  }
 ];
 
 const inventory = [
+  // P1001: Mixed availability (Size 40: in stock, Size 42: in stock, Size 44: out of stock)
+  { productId: 'P1001', variant: 'Size 40', quantity: 8 },
   { productId: 'P1001', variant: 'Size 42', quantity: 6 },
   { productId: 'P1001', variant: 'Size 44', quantity: 0 },
+
+  // P1002: Fully in stock across all sizes
+  { productId: 'P1002', variant: 'Small', quantity: 8 },
   { productId: 'P1002', variant: 'Medium', quantity: 10 },
-  { productId: 'P1003', variant: 'One Size', quantity: 0 }
+  { productId: 'P1002', variant: 'Large', quantity: 15 },
+
+  // P1003: Completely out of stock
+  { productId: 'P1003', variant: 'One Size', quantity: 0 },
+
+  // P1004: Mixed availability with specific sizes (Size 8: in stock, Size 9: out of stock, Size 10: in stock, Size 11: out of stock)
+  { productId: 'P1004', variant: 'Size 8', quantity: 5 },
+  { productId: 'P1004', variant: 'Size 9', quantity: 0 },
+  { productId: 'P1004', variant: 'Size 10', quantity: 4 },
+  { productId: 'P1004', variant: 'Size 11', quantity: 0 },
+
+  // P1005: Completely out of stock across all variants
+  { productId: 'P1005', variant: 'Size 9', quantity: 0 },
+  { productId: 'P1005', variant: 'Size 10', quantity: 0 }
 ];
 
 const seedDatabase = async () => {
@@ -55,8 +150,8 @@ const seedDatabase = async () => {
     await Product.insertMany(products);
     await Inventory.insertMany(inventory);
 
-    console.log('Data Imported!');
-    process.exit();
+    console.log('Database successfully seeded with comprehensive MVP demo data!');
+    process.exit(0);
   } catch (error) {
     console.error(`Error with data import: ${error.message}`);
     process.exit(1);
