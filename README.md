@@ -24,8 +24,8 @@ request.
 
 The application is currently live and can be accessed at the following links:
 
-- **Frontend (Vercel):** `[Insert Vercel URL here]`
-- **Backend API (Render):** `[Insert Render URL here]`
+- **Frontend (Vercel):** [https://northstar-sprint-assistant.vercel.app/](https://northstar-sprint-assistant.vercel.app/)
+- **Backend API (Render):** [https://northstar-sprint-d1wc.onrender.com](https://northstar-sprint-d1wc.onrender.com)
 - **Database:** MongoDB Atlas
 
 ---
