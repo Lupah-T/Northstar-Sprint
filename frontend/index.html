@@ -1,12 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Northstar Support Assistant</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northstar Support Assistant</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">NORTHSTAR</span>
+    </div>
+    <h1>Support Assistant</h1>
+    <p>Check a return, refund, or product's stock status — no ticket needed.</p>
+  </header>
+
+  <main>
+    <div id="demo-banner" class="demo-banner" hidden>
+      Demo mode: showing sample data. Try order ID <strong>NR-1001</strong> or
+      product <strong>blue running shoes size 9</strong>. Switch off demo mode
+      in <code>js/config.js</code> once the backend is live.
+    </div>
+
+    <div class="tabs" role="tablist"

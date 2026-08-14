@@ -1,0 +1,258 @@
+:root {
+  --navy: #0b2545;
+  --navy-light: #13345f;
+  --amber: #d9822b;
+  --amber-dark: #b3661a;
+  --ink: #1c1f26;
+  --muted: #5b6472;
+  --line: #e2e6eb;
+  --bg: #f6f7f9;
+  --white: #ffffff;
+  --green-bg: #eaf6ee;
+  --green-line: #a9d9b8;
+  --green-ink: #1c6b3a;
+  --amber-bg: #fdf1e2;
+  --amber-line: #f0cf9c;
+  --amber-ink: #8a5613;
+  --red-bg: #fdecec;
+  --red-line: #f1b6b6;
+  --red-ink: #a12a2a;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.app-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 20px 16px;
+}
+
+.app-header .brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.app-header .brand-mark {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--amber);
+}
+
+.app-header h1 {
+  font-size: 18px;
+  margin: 4px auto 0;
+  max-width: 560px;
+  font-weight: 600;
+}
+
+.app-header p {
+  margin: 2px auto 0;
+  max-width: 560px;
+  font-size: 13px;
+  color: #c4d0e0;
+}
+
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+}
+
+.demo-banner {
+  background: #fff7ea;
+  border: 1px solid var(--amber-line);
+  color: var(--amber-ink);
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.tab:hover {
+  border-color: var(--amber);
+}
+
+.tab[aria-selected="true"] {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.field .hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 15px;
+  background: var(--bg);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(217, 130, 43, 0.18);
+  background: var(--white);
+}
+
+.submit-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--amber-dark);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+#result-area {
+  margin-top: 18px;
+}
+
+.panel {
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+}
+
+.panel-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.panel-body {
+  font-size: 14px;
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.panel-success {
+  background: var(--green-bg);
+  border-color: var(--green-line);
+  color: var(--green-ink);
+}
+
+.panel-warning {
+  background: var(--amber-bg);
+  border-color: var(--amber-line);
+  color: var(--amber-ink);
+}
+
+.panel-error {
+  background: var(--red-bg);
+  border-color: var(--red-line);
+  color: var(--red-ink);
+}
+
+.detail-list {
+  margin: 0;
+}
+
+.detail-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+}
+
+.detail-list > div:last-child {
+  border-bottom: none;
+}
+
+.detail-list dt {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.detail-list dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 420px) {
+  .app-header h1 {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .detail-list > div {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .detail-list dd {
+    text-align: left;
+  }
+}
