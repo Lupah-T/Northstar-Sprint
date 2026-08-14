@@ -149,8 +149,14 @@ northstar-sprint/
 - `GET /api/stock/P1001/Size 42` - Returns stock for variant Size 42.
 
 ## Demo Workflow
-1. Navigate to the React frontend in your browser.
-2. Select "Returns & Refunds".
-3. Enter `NS1001` to see an eligible, approved return with a completed refund.
-4. Select "Stock Availability".
-5. Enter `P1001` and `Size 42` to see an in-stock item.
+You can test the application using the following mock data pre-loaded into the database:
+
+**Returns & Refunds:**
+- **Valid Return:** Enter Order ID `NS1001` (Shows an eligible, approved return with a completed refund).
+- **Ineligible Return:** Enter Order ID `NS1002` (Shows an ineligible, rejected return).
+- **Invalid/Error Data:** Enter Order ID `NS9999` (Shows an error that the order was not found).
+
+**Stock Availability:**
+- **Valid Stock:** Enter Product ID `P1001` and Variant `Size 42` (Shows available stock).
+- **Out of Stock:** Enter Product ID `P1001` and Variant `Size 44` (Shows an out-of-stock error).
+- **Invalid Product:** Enter Product ID `P9999` (Shows an error that the product was not found).
