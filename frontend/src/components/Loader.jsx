@@ -6,14 +6,14 @@ const Loader = () => {
     "Putting on our running shoes... 👟",
     "Sprinting to the warehouse... 🏃💨",
     "Searching the aisles... 🔍",
-    "Almost there, hang tight! ⏳"
+    "Got your results! 🎉"
   ];
   const [msgIndex, setMsgIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setMsgIndex((prev) => (prev + 1) % messages.length);
-    }, 2500); // Change text every 2.5 seconds
+      setMsgIndex((prev) => (prev < messages.length - 1 ? prev + 1 : prev));
+    }, 1500); // Change text every 1.5 seconds
     return () => clearInterval(interval);
   }, [messages.length]);
 
