@@ -22,7 +22,11 @@ const ReturnsForm = () => {
     setResult(null);
 
     try {
-      const data = await checkReturnStatus(orderId.trim());
+      const fetchPromise = checkReturnStatus(orderId.trim());
+      const timerPromise = new Promise((resolve) => setTimeout(resolve, 7500)); // Minimum 7.5 seconds delay
+      
+      const [data] = await Promise.all([fetchPromise, timerPromise]);
+      
       setResult(data);
     } catch (err) {
       setError(err.message);

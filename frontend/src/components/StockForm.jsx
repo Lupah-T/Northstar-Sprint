@@ -23,7 +23,11 @@ const StockForm = () => {
     setResult(null);
 
     try {
-      const data = await checkStockAvailability(productId.trim(), variant.trim());
+      const fetchPromise = checkStockAvailability(productId.trim(), variant.trim());
+      const timerPromise = new Promise((resolve) => setTimeout(resolve, 7500)); // Minimum 7.5 seconds delay
+      
+      const [data] = await Promise.all([fetchPromise, timerPromise]);
+      
       setResult(data);
     } catch (err) {
       setError(err.message);
