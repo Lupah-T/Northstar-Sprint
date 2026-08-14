@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { checkReturnStatus } from '../services/api';
 import ResultCard from './ResultCard';
 import ErrorMessage from './ErrorMessage';
+import Loader from './Loader';
 
 const ReturnsForm = () => {
   const [orderId, setOrderId] = useState('');
@@ -47,6 +48,8 @@ const ReturnsForm = () => {
           {loading ? 'Checking...' : 'Check Return'}
         </button>
       </form>
+
+      {loading && <Loader />}
 
       {error && <ErrorMessage message={error} />}
       

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { checkStockAvailability } from '../services/api';
 import ResultCard from './ResultCard';
 import ErrorMessage from './ErrorMessage';
+import Loader from './Loader';
 
 const StockForm = () => {
   const [productId, setProductId] = useState('');
@@ -58,6 +59,8 @@ const StockForm = () => {
           {loading ? 'Checking...' : 'Check Availability'}
         </button>
       </form>
+
+      {loading && <Loader />}
 
       {error && <ErrorMessage message={error} />}
       
