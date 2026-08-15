@@ -12,17 +12,17 @@
 - **Branch**: `feature/frontend`
 - **Responsibilities**: React interface development, UI implementation of Returns and Stock workflows, API integration, loading and error state management.
 
-### Member 3: Kamoing98
+### Member 3: Wayua-web
 - **Role**: Database + Business Logic
 - **Branch**: `feature/database`
 - **Responsibilities**: MongoDB/Mongoose schema design, seed data creation, inventory and returns business rules.
 
-### Member 4: shaquelle254kenya
+### Member 4: Kaimong98
 - **Role**: Testing / QA
-- **Branch**: `test/mvp-testing`
+- **Branch**: `test/mvp-testing` `test-docs` 
 - **Responsibilities**: Automated API tests, edge case and negative testing, end-to-end workflow validation, bug reporting.
 
-### Member 5: wayua-web
+### Member 5: Shaquelle254kenya
 - **Role**: DevOps + Documentation
 - **Branch**: `docs/devops`
 - **Responsibilities**: Environment configuration, repository structure, architectural documentation, Go-Live Note preparation.
