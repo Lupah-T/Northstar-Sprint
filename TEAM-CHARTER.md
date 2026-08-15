@@ -17,7 +17,7 @@
 - **Branch**: `feature/database`
 - **Responsibilities**: MongoDB/Mongoose schema design, seed data creation, inventory and returns business rules.
 
-### Member 4: Kaimong98
+### Member 4: Kamoing98
 - **Role**: Testing / QA
 - **Branch**: `test/mvp-testing` `test-docs` 
 - **Responsibilities**: Automated API tests, edge case and negative testing, end-to-end workflow validation, bug reporting.
